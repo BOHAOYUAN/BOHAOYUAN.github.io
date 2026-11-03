@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>薄皓元 Haoyuan Bo — AI 全栈工程师 · Agent 与浏览器扩展</title>
+<meta name="description" content="薄皓元（Haoyuan Bo），2027 届计算机科学与技术本科生。做 AI Agent 运行时、浏览器扩展和可以点开验证的 Web 产品：上层是真实模型驱动的 agent 循环，下层是纯 numpy 手写的自动微分。">
+<meta name="author" content="薄皓元 Haoyuan Bo">
+<meta name="theme-color" content="#08090c">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="薄皓元 Haoyuan Bo — AI 全栈工程师">
+<meta property="og:description" content="Autograd from scratch on the bottom, a model-driven agent loop on the top. 8 projects, 446 passing tests, a real LLM eval harness.">
+<meta property="og:image" content="assets/img/og.jpg">
+<meta property="og:url" content="https://bohaoyuan.github.io/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="薄皓元 Haoyuan Bo — AI 全栈工程师">
+<meta name="twitter:description" content="Agent runtime on top, autograd from scratch underneath. 8 projects you can open and verify.">
+<meta name="twitter:image" content="assets/img/og.jpg">
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%237cf5c4'/%3E%3Ctext x='16' y='21.5' font-family='monospace' font-size='13' font-weight='700' text-anchor='middle' fill='%2306110c'%3EHB%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="assets/css/style.css">
+<script>document.documentElement.classList.add("js");</script>
+</head>
+<body>
+<a class="skip" href="#main" data-en="Skip to content">跳到正文</a>
+
+<header class="nav" id="nav">
+  <a class="brand" href="#top" aria-label="回到顶部">
+    <span class="mark" aria-hidden="true">HB</span>
+    <span>薄皓元 <span style="color:var(--dim);font-weight:500">/ Haoyuan Bo</span></span>
+  </a>
+
+  <nav class="nav-links" aria-label="主导航">
+    <a href="#work" data-en="Work">作品</a>
+    <a href="#projects" data-en="Projects">项目</a>
+    <a href="#stack" data-en="Stack">技术栈</a>
+    <a href="#about" data-en="About">关于</a>
+    <a href="#contact" data-en="Contact">联系</a>
+  </nav>
+
+  <div class="nav-right">
+    <div class="lang" role="group" aria-label="语言 / Language">
+      <button type="button" id="lang-zh" aria-pressed="true">中文</button>
+      <button type="button" id="lang-en" aria-pressed="false">EN</button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- ============================== HERO ============================== -->
+  <section class="hero" id="top">
+    <div class="wrap">
+      <div class="hero-grid">
+      <div class="hero-main">
+
+      <p class="hero-kicker"><span class="dot" aria-hidden="true"></span><span data-en="AI full-stack engineer · class of 2027 · Tianjin">AI 全栈工程师 · 2027 届 · 天津</span></p>
+
+      <h1>
+        薄皓元
+        <span class="latin">Haoyuan&nbsp;Bo</span>
+      </h1>
+
+      <p class="hero-lead" data-en-html="I build <strong>both layers of an AI system</strong>: a real, model-driven agent loop on top, and an autograd engine written from scratch on numpy underneath. Every project and every number on this page can be opened in a repository or reproduced by a test.">
+        我把一个 AI 系统的<strong>两层都写成完整实现</strong>：上层是由真实模型驱动的 Agent 循环，下层是只用 numpy 手写的自动微分内核。这个站上的每个项目、每个数字，都能点开仓库或跑一遍测试复现。
+      </p>
+
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#work"><span data-en="See the work">查看作品</span> <span aria-hidden="true">↓</span></a>
+        <a class="btn" href="https://github.com/BOHAOYUAN" target="_blank" rel="noopener">GitHub <span class="arrow" aria-hidden="true">↗</span></a>
+        <a class="btn" href="mailto:haoyuanbo626@gmail.com"><span data-en="Email me">邮件联系</span> <span class="arrow" aria-hidden="true">↗</span></a>
+      </div>
+
+      <dl class="hero-stats">
+        <div>
+          <b>446</b>
+          <span data-en="tests · WEB-Agent-OS">测试通过 · WEB-Agent-OS</span>
+        </div>
+        <div>
+          <b>3 / 4</b>
+          <span data-en="eval tasks solved — CodeBuddy Agent">基准任务通过 · CodeBuddy</span>
+        </div>
+        <div>
+          <b>≈1,200</b>
+          <span data-en="numpy autograd lines">行纯 numpy 自动微分 · PicoGrad</span>
+        </div>
+      </dl>
+
+      </div><!-- /hero-main -->
+
+      <aside class="hero-side" aria-label="当前状态">
+        <div class="now">
+          <p class="now-label"><i aria-hidden="true"></i><span data-en="Now">现在</span></p>
+          <ul>
+            <li>
+              <b data-en="Doing">在做</b>
+              <span data-en="WEB-Agent-OS v0.2 — an agent runtime that gives a web AI hands and memory">WEB-Agent-OS v0.2 —— 让网页版 AI 拥有双手与记忆的运行时</span>
+            </li>
+            <li>
+              <b data-en="Seeking">在找</b>
+              <span data-en="2027 internship · AI full-stack / agent engineering · Beijing or Shenzhen">2027 届实习 · AI 全栈 / Agent 工程 · 北京 / 深圳</span>
+            </li>
+            <li>
+              <b data-en="Open">开源</b>
+              <span data-en="20+ public repositories · MIT licensed runtime · 446 passing tests">20+ 公开仓库 · MIT 开源运行时 · 446 个测试通过</span>
+            </li>
+          </ul>
+          <p class="hero-note" data-en="Every number here can be opened and checked ↗">这里的每个数字都能点开验证 ↗</p>
+        </div>
+      </aside>
+
+      </div><!-- /hero-grid -->
+    </div>
+
+    <div class="hero-scroll" aria-hidden="true">
+      <i></i>
+      <span data-en="scroll">向下</span>
+    </div>
+  </section>
+
+  <!-- ============================== FEATURED ============================== -->
+  <section class="section" id="work">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <h2><em>01</em><span data-en="Selected work">精选作品</span></h2>
+        <p data-en="Three systems where I wrote the whole stack: UI, local runtime, evaluation. Numbers come from committed tests and benchmark JSON.">三个我自己写完整链路的系统：界面、本地运行时、评测。下面的数字都来自仓库里的测试与评测文件。</p>
+      </div>
+
+      <div class="work">
+
+        <!-- 1. CodeBuddy -->
+        <article class="project reveal">
+          <div class="project-copy">
+            <p class="project-index">01 · <span data-en="Agent runtime">Agent 运行时</span></p>
+            <h3>CodeBuddy Agent</h3>
+            <p class="sub" data-en="Autonomous ReAct code-repair agent · CLI + VS Code">自主 ReAct 代码修复 Agent · CLI + VS Code</p>
+            <p class="desc" data-en="An agent that plans, calls tools through real LLM function calling, patches failing unit tests, then verifies the fix with an independent test run. AST-based context pruning, loop and repeat detection, long-term memory, and a reproducible evaluation harness — every number on its dashboard is produced by an actual model response or tool execution.">
+              它先做计划，再通过真实的 LLM function calling 调用工具，修复失败的单元测试，最后用一次<strong>独立的</strong>测试运行验证自己。带 AST 上下文剪枝、循环/重复检测、长时记忆，以及可复现的评测台 —— 面板上的每个数字都来自真实模型响应或工具执行。
+            </p>
+            <ul class="metrics">
+              <li><b>62</b><span data-en="tests passing">测试通过</span></li>
+              <li><b>3/4</b><span data-en="eval tasks solved">评测任务通过</span></li>
+              <li><b>−67%</b><span data-en="context pruned (AST)">上下文剪枝 / AST</span></li>
+              <li><b>$0.019</b><span data-en="per benchmark run">每次基准运行成本</span></li>
+            </ul>
+            <ul class="stack">
+              <li>TypeScript</li><li>VS Code API</li><li>Node.js</li><li>Vitest</li><li>Function Calling</li>
+            </ul>
+            <p class="project-links">
+              <a href="https://github.com/BOHAOYUAN/CodeBuddy" target="_blank" rel="noopener">GitHub <span class="arrow" aria-hidden="true">↗</span></a>
+              <a href="https://codebuddy-hyhm.vercel.app" target="_blank" rel="noopener"><span data-en="Live overview">在线介绍页</span> <span class="arrow" aria-hidden="true">↗</span></a>
+            </p>
+          </div>
+
+          <div class="project-visual">
+            <div class="visual">
+              <div class="visual-bar"><i></i><i></i><i></i><span>eval · gpt-oss-120b · 2026-10-13</span></div>
+<pre class="term"><span class="c-dim">$</span> npm run eval -- --model openai/gpt-oss-120b
+<span class="c-dim">benchmark</span>      4 tasks · single pass
+
+  tieredDiscount   <span class="c-key">✓</span> verified: tests passing
+  pagination       <span class="c-key">✓</span> verified: tests passing
+  dedupe           <span class="c-key">✓</span> verified: tests passing
+  retry            <span class="c-warn">✗</span> max iterations reached
+
+<span class="c-dim">─────────────────────────────────────────────</span>
+  solved           <span class="c-val">3 / 4</span>   <span class="c-dim">(75%)</span>
+  tokens           <span class="c-val">98,801</span>
+  cost             <span class="c-val">$0.019164</span>
+  context pruned   <span class="c-val">67.15%</span>
+  avg wall clock   <span class="c-val">144 s</span> / task
+
+<span class="c-dim">source: benchmarks/2026-10-13-gpt-oss-120b.json</span></pre>
+            </div>
+          </div>
+        </article>
+
+        <!-- 2. WEB-Agent-OS -->
+        <article class="project flip reveal">
+          <div class="project-copy">
+            <p class="project-index">02 · <span data-en="Open source">开源</span></p>
+            <h3>WEB-Agent-OS</h3>
+            <p class="sub" data-en="Give every AI chat hands, memory and a workspace — locally">让网页版 AI 拥有双手、记忆和工作区 · 本地运行</p>
+            <p class="desc" data-en="A four-layer runtime (Sensor → Router → Actor → UI) that turns a web AI chat into an agent: a Manifest V3 extension observes the page, a local Actor process executes a declarative PageAct DSL, conversation memory is summarised into SQLite and injected into the next turn, and model-generated HTML is rendered inside a sandboxed artifacts canvas.">
+              四层运行时（Sensor → Router → Actor → UI），把网页版 AI 对话变成 Agent：MV3 扩展负责观察页面，本地 Actor 进程执行声明式的 PageAct DSL，对话记忆被摘要进 SQLite 再注入下一轮，模型生成的 HTML 在沙箱画布里渲染。
+            </p>
+            <ul class="metrics">
+              <li><b>446</b><span data-en="tests passing / 49 files">测试通过 / 49 文件</span></li>
+              <li><b>17.9k</b><span data-en="lines of TypeScript">行 TypeScript</span></li>
+              <li><b>v0.1.0</b><span data-en="tagged release">已打 tag</span></li>
+              <li><b>MIT</b><span data-en="license">开源协议</span></li>
+            </ul>
+            <ul class="stack">
+              <li>TypeScript</li><li>MV3</li><li>npm workspaces</li><li>SQLite</li><li>Vitest</li>
+            </ul>
+            <p class="project-links">
+              <a href="https://github.com/BOHAOYUAN/WEB-Agent-OS" target="_blank" rel="noopener">GitHub <span class="arrow" aria-hidden="true">↗</span></a>
+              <a href="https://github.com/BOHAOYUAN/WEB-Agent-OS#readme" target="_blank" rel="noopener"><span data-en="README & known gaps">README 与已知局限</span> <span class="arrow" aria-hidden="true">↗</span></a>
+            </p>
+          </div>
+
+          <div class="project-visual">
+            <div class="visual">
+              <div class="visual-bar"><i></i><i></i><i></i><span>WEB-Agent-OS · console · Actor + PageAct + Artifacts</span></div>
+              <img src="assets/img/webos.jpg" alt="WEB-Agent-OS 本地控制台：Actor 连接、PageAct 声明式动作、Artifacts 沙箱渲染" width="900" height="980">
+            </div>
+          </div>
+        </article>
+
+        <!-- 3. Veloxis -->
+        <article class="project reveal">
+          <div class="project-copy">
+            <p class="project-index">03 · <span data-en="Product engineering">产品工程</span></p>
+            <h3>Veloxis Wealth OS</h3>
+            <p class="sub" data-en="Retirement scenario planner · Next.js 16 / React 19">退休情景推演器 · Next.js 16 / React 19</p>
+            <p class="desc" data-en="A browser-side retirement planner: every household input is validated by a Zod schema, the app produces a year-by-year cash-flow ledger, runs a seeded Monte Carlo projection, and compares a current plan against a proposed one on the same simulated market paths — so differences come from the plan, not sampling noise. The README states its product boundary explicitly: no auth, no multi-tenancy, no real tax engine.">
+              在浏览器里做退休推演：所有家庭输入都过 Zod 校验，输出逐年的现金流账本，跑带随机种子的 Monte Carlo，并让「当前方案」和「调整方案」复用同一条模拟路径 —— 差异只来自方案本身，不是抽样噪声。README 里写明了产品边界：不做登录、多租户和真实税务引擎。
+            </p>
+            <ul class="metrics">
+              <li><b>46</b><span data-en="tests passing">测试通过</span></li>
+              <li><b>13</b><span data-en="Zod input schemas">Zod 输入校验</span></li>
+              <li><b>3.6k</b><span data-en="lines / 127 files">行 / 127 文件</span></li>
+              <li><b>49</b><span data-en="commits">次提交</span></li>
+            </ul>
+            <ul class="stack">
+              <li>Next.js 16</li><li>React 19</li><li>TypeScript</li><li>Zod</li><li>Canvas</li><li>Vitest</li>
+            </ul>
+            <p class="project-links">
+              <a href="https://github.com/BOHAOYUAN/Veloxis" target="_blank" rel="noopener">GitHub <span class="arrow" aria-hidden="true">↗</span></a>
+              <a href="https://github.com/BOHAOYUAN/Veloxis#readme" target="_blank" rel="noopener"><span data-en="Runs locally — demo URL retired">本地运行 · 演示站已下线</span> <span class="arrow" aria-hidden="true">↗</span></a>
+            </p>
+          </div>
+
+          <div class="project-visual">
+            <div class="visual">
+              <div class="visual-bar"><i></i><i></i><i></i><span>veloxis · current plan vs proposed plan</span></div>
+              <img src="assets/img/veloxis.jpg" alt="Veloxis 界面：当前方案与调整方案的逐年推演对比" width="1280" height="895">
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================== ARCHIVE ============================== -->
+  <section class="section" id="projects">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <h2><em>02</em><span data-en="More projects">更多项目</span></h2>
+        <p data-en="Smaller builds that still shipped code you can read: a Manifest V3 extension, a numpy framework, a merchant ops platform, an Android automation agent, and a scroll-driven 3D site.">体量更小、但同样有代码可读的几件作品：一个 MV3 扩展、一个 numpy 框架、一个商家运营平台、一个 Android 自动化 Agent，以及一个滚动叙事的 3D 站点。</p>
+      </div>
+
+      <div class="archive">
+
+        <article class="card reveal">
+          <div class="card-top">
+            <h3>LeadSnapper</h3>
+            <span class="kind" data-en="Extension">浏览器扩展</span>
+          </div>
+          <p data-en="A Manifest V3 side-panel workbench that turns fragmented company research into a reviewable queue: background service worker, content script, storage batching, and a native-messaging host for local processing. Human-in-the-loop by design — it prepares drafts, never sends on its own.">
+            MV3 侧边栏工作台，把零散的公司调研变成可复核的队列：后台 worker、内容脚本、存储批处理，以及一个本地处理的 native‑messaging 宿主。默认人工在环 —— 只准备草稿，绝不自行发送。
+          </p>
+          <p class="meta"><span>3 ★</span><span>MV3</span><span>11.9k LOC</span><span>48 commits</span></p>
+          <span class="go"><span data-en="View repository">查看仓库</span> <span aria-hidden="true">↗</span></span>
+          <a class="cover" href="https://github.com/BOHAOYUAN/Lead-Snapper" target="_blank" rel="noopener" aria-label="LeadSnapper GitHub 仓库"></a>
+        </article>
+
+        <article class="card reveal" style="--d:60ms">
+          <div class="card-top">
+            <h3>PicoGrad</h3>
+            <span class="kind" data-en="Course project">课程设计</span>
+          </div>
+          <p data-en="A deep-learning framework written from scratch on numpy only: tensor autograd, 20+ differentiable ops, layers, optimizers. Numerical gradient check 16/16 pass (max relative error 1e-8), 35 unit tests, MNIST 95.4%, spiral 100%. Repository is private — the code and report can be shown on request.">
+            只依赖 numpy 从零写的深度学习框架：张量自动微分、20+ 可导算子、层与优化器。数值梯度校验 16/16 通过（最大相对误差 1e-8），35 个单测，MNIST 95.4%，三螺旋分类 100%。仓库未公开 —— 代码与报告可按需提供。
+          </p>
+          <p class="meta"><span>Python</span><span>numpy</span><span>3.2k LOC</span><span>autograd</span></p>
+          <span class="go"><span data-en="Available on request">可应要求提供</span></span>
+        </article>
+
+        <article class="card reveal">
+          <div class="card-top">
+            <h3>MS BEAUTY Review Studio</h3>
+            <span class="kind" data-en="Product">产品</span>
+          </div>
+          <p data-en="A multi-store review operations platform for beauty and SPA merchants: Next.js 16 with Prisma migrations against Supabase, row-level-security policies, and a review pipeline from import to reply drafts.">
+            面向美业与 SPA 商家的多门店评价运营平台：Next.js 16 + Prisma 迁移 + Supabase 行级安全策略，从评价导入到回复草稿的完整流水线。
+          </p>
+          <p class="meta"><span>Next.js 16</span><span>Prisma</span><span>Supabase</span><span>8.5k LOC</span></p>
+          <span class="go"><span data-en="View repository">查看仓库</span> <span aria-hidden="true">↗</span></span>
+          <a class="cover" href="https://github.com/BOHAOYUAN/Projectqwea" target="_blank" rel="noopener" aria-label="MS BEAUTY Review Studio GitHub 仓库"></a>
+        </article>
+
+        <article class="card reveal" style="--d:60ms">
+          <div class="card-top">
+            <h3>PocketAgent</h3>
+            <span class="kind" data-en="Automation">自动化</span>
+          </div>
+          <p data-en="Natural-language goals become humanised gestures on a real Android device over ADB, driven by a Groq-hosted model. Three layers: an agent brain, a device bridge, and a gesture engine with dwell/jitter so taps do not look synthetic.">
+            自然语言目标经 Groq 模型解析后，通过 ADB 在真实 Android 设备上变成拟人手势。三层结构：Agent 大脑、设备桥、带停留与抖动的拟人手势引擎。
+          </p>
+          <p class="meta"><span>Python</span><span>FastAPI</span><span>ADB</span><span>2.3k LOC</span></p>
+          <span class="go"><span data-en="View repository">查看仓库</span> <span aria-hidden="true">↗</span></span>
+          <a class="cover" href="https://github.com/BOHAOYUAN/PocketAgent" target="_blank" rel="noopener" aria-label="PocketAgent GitHub 仓库"></a>
+        </article>
+
+        <article class="card reveal" style="--d:120ms">
+          <div class="card-top">
+            <h3>Cinematic 3D Portfolio</h3>
+            <span class="kind" data-en="Experiment">实验</span>
+          </div>
+          <p data-en="A scroll-driven 3D narrative: React 19 + Three.js via react-three-fiber and drei, a damped scroll-linked camera rig over a procedural scene, with bloom and chromatic-aberration post-processing timed by GSAP. Runs locally.">
+            滚动驱动的 3D 叙事：React 19 + react-three-fiber/drei，程序化场景上挂一台带阻尼的滚动联动相机，Bloom 与色差后期由 GSAP 控制节奏。本地运行。
+          </p>
+          <p class="meta"><span>React 19</span><span>Three.js</span><span>R3F</span><span>GSAP</span></p>
+          <span class="go"><span data-en="Not published">未公开</span></span>
+        </article>
+
+        <article class="card reveal" style="--d:180ms">
+          <div class="card-top">
+            <h3>MonteCarlo FinLife</h3>
+            <span class="kind" data-en="Course project">课程设计</span>
+          </div>
+          <p data-en="A WeChat mini-program that simulates lifetime financial health and stress-tests a plan under randomised returns: simulator, stress test, history and theory pages, plus the course design report.">
+            微信小程序：模拟一生的财务健康，并用随机收益对方案做压力测试。包含推演、压力测试、历史与理论四个页面，以及课程设计报告。
+          </p>
+          <p class="meta"><span>Mini Program</span><span>JavaScript</span><span>1.0k LOC</span></p>
+          <span class="go"><span data-en="Not published">未公开</span></span>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================== STACK ============================== -->
+  <section class="section" id="stack">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <h2><em>03</em><span data-en="Toolkit">技术栈</span></h2>
+        <p data-en="What I actually use to build, test and ship — grouped by layer, not by buzzword.">我实际用来构建、测试和上线的东西 —— 按层分组，不按关键词堆砌。</p>
+      </div>
+
+      <div class="stack-grid reveal">
+        <div class="stack-col">
+          <h4 data-en="Languages & frameworks">语言与框架</h4>
+          <ul>
+            <li>TypeScript / JavaScript</li>
+            <li>Python</li>
+            <li>React 19 · Next.js 16</li>
+            <li>Node.js · Express</li>
+            <li>HTML · CSS · Canvas</li>
+          </ul>
+        </div>
+        <div class="stack-col">
+          <h4 data-en="AI engineering">AI 工程</h4>
+          <ul>
+            <li data-en="Agent loops: plan · tool use · memory · reflect">Agent 循环：计划 · 工具 · 记忆 · 反思</li>
+            <li data-en="Function calling &amp; structured output">Function calling 与结构化输出</li>
+            <li data-en="RAG · multi-model routing · SSE streaming">RAG · 多模型路由 · SSE 流式</li>
+            <li data-en="Eval harnesses &amp; prompt design">评测台设计与 Prompt 工程</li>
+            <li>DeepSeek · Gemini · OpenAI · Groq</li>
+          </ul>
+        </div>
+        <div class="stack-col">
+          <h4 data-en="Browser & 3D">浏览器与可视化</h4>
+          <ul>
+            <li data-en="Chrome MV3: side panel, service worker, content script">Chrome MV3：侧边栏、worker、内容脚本</li>
+            <li data-en="Native messaging &amp; local hosts">Native messaging 与本地宿主</li>
+            <li>Three.js · WebGL · R3F</li>
+            <li data-en="Data viz: ledger tables, confidence charts">数据可视化：账本表、置信区间图</li>
+          </ul>
+        </div>
+        <div class="stack-col">
+          <h4 data-en="Engineering & delivery">工程与交付</h4>
+          <ul>
+            <li>Vitest · pytest · GitHub Actions</li>
+            <li>Docker · Vercel · Serverless</li>
+            <li>Prisma · Supabase · SQLite · MySQL</li>
+            <li>Git · monorepo · API design</li>
+            <li data-en="AI-assisted development with review gates">AI 辅助开发 + 代码评审门禁</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================== ABOUT ============================== -->
+  <section class="section" id="about">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <h2><em>04</em><span data-en="About">关于</span></h2>
+        <p data-en="A computer-science undergraduate who keeps shipping systems, and keeps the receipts.">一个一直在交付系统、也一直留着证据的计算机专业学生。</p>
+      </div>
+
+      <div class="about reveal">
+        <div>
+          <h3 data-en="I would rather ship one system I can explain than twenty I cannot.">比起做过二十个项目，我更在意能不能把一个系统讲清楚。</h3>
+          <p data-en="I am a final-year computer science undergraduate at Tianjin University of Technology and Education (graduating June 2027). Most of what I know came from building things end to end and then writing down what broke: an agent that repairs failing tests, a browser runtime that gives a web chat memory and hands, a framework whose backward pass I had to derive myself.">
+            我是天津职业技术师范大学计算机科学与技术专业的本科生（2027 年 6 月毕业）。我大部分的本事来自把东西从头做到尾，然后记下它坏在哪：一个能修测试的 Agent、一个给网页 AI 加上记忆和双手的浏览器运行时、一个反向传播要自己推导的框架。
+          </p>
+          <p data-en="I work with AI assistance and review gates, and I keep every claim attached to a repository, a test run or a committed benchmark file. When a project has a known limitation, the README says so — that is usually the first thing I want to talk about in an interview.">
+            我用 AI 辅助开发，但设评审门禁；每一条能力都挂在仓库、测试或已提交的基准文件上。项目有已知局限时，README 会写出来 —— 这通常也是我在面试里最想聊的部分。
+          </p>
+          <p data-en="Currently looking for a 2027 internship or graduate role in AI full-stack / agent engineering, in Beijing or Shenzhen.">
+            目前在找 2027 届的实习或校招机会，方向是 AI 全栈 / Agent 工程，城市北京或深圳。
+          </p>
+        </div>
+
+        <div class="facts">
+          <div class="portrait">
+            <img src="assets/img/portrait.jpg" alt="薄皓元 Haoyuan Bo" width="360" height="360">
+          </div>
+          <div class="fact">
+            <h4 data-en="Education">教育</h4>
+            <p>
+              <span data-en="Tianjin University of Technology and Education">天津职业技术师范大学</span><br>
+              <span data-en="B.Eng. Computer Science (5-year) · 2022.09 – 2027.06">计算机科学与技术（五年制本科）· 2022.09 – 2027.06</span>
+            </p>
+          </div>
+          <div class="fact">
+            <h4 data-en="Focus">方向</h4>
+            <p data-en="Agent runtimes · browser automation · developer tools · data-heavy web apps">Agent 运行时 · 浏览器自动化 · 开发者工具 · 数据密集型 Web 应用</p>
+          </div>
+          <div class="fact">
+            <h4 data-en="Open source">开源</h4>
+            <p><a href="https://github.com/BOHAOYUAN" target="_blank" rel="noopener" style="border-bottom:1px solid rgba(124,245,196,.4)">github.com/BOHAOYUAN</a><br>
+            <span data-en="WEB-Agent-OS (MIT) · CodeBuddy · Lead-Snapper">WEB-Agent-OS（MIT）· CodeBuddy · Lead-Snapper</span></p>
+          </div>
+          <div class="fact">
+            <h4 data-en="Location">所在地</h4>
+            <p data-en="Tianjin, China · open to Beijing / Shenzhen">天津 · 可去北京 / 深圳</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================== CONTACT ============================== -->
+  <section class="contact" id="contact">
+    <div class="wrap">
+      <div class="reveal">
+        <h2 data-en="Let's build something measurable.">聊一个能被验证的东西。</h2>
+        <p class="lead" data-en="Hiring for a 2027 internship, or need a React / Next.js / browser-extension build done properly? Send one sentence about the problem — I will reply with what I would check first.">
+          在招 2027 届实习，或者需要把 React / Next.js / 浏览器扩展做扎实？发我一句问题描述，我会先回你打算怎么验证它。
+        </p>
+        <div class="contact-links">
+          <a class="btn btn-primary" href="mailto:haoyuanbo626@gmail.com">haoyuanbo626@gmail.com</a>
+          <a class="btn" href="https://github.com/BOHAOYUAN" target="_blank" rel="noopener">GitHub <span class="arrow" aria-hidden="true">↗</span></a>
+        </div>
+      </div>
+
+      <div class="footer">
+        <span>© <span id="year">2026</span> <span data-en="Haoyuan Bo · built by hand — no framework, no trackers">薄皓元 · 手写 HTML/CSS/JS，无框架、无追踪</span></span>
+        <span data-en="Last updated Nov 2026">最近更新 2026.11</span>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<script src="assets/js/main.js" defer></script>
+</body>
+</html>
